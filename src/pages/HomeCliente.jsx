@@ -46,11 +46,18 @@ export function HomeCliente() {
         <div className="flex justify-between items-start">
           <div>
             <h1 className="text-2xl font-bold text-white">{barbearia.nome}</h1>
-            <p className="text-zinc-400 text-sm">São Paulo • A domicílio</p>
+            <p className="text-zinc-400 text-sm">São Paulo • {barbearia.tipo_servico}</p>
           </div>
-          <span className="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full font-bold uppercase">
-            Aberto
-          </span>
+          
+          {barbearia.aberto === true ? 
+            <span className="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full font-bold uppercase">
+              Aberto
+            </span>
+          : 
+            <span className="bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded-full font-bold uppercase">
+              Fechado
+            </span>
+          }
         </div>
 
         {/* Foto do Perfil (Placeholder) */}
