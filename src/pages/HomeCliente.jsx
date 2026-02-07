@@ -8,6 +8,7 @@ export function HomeCliente() {
   const { slug } = useParams()
   const [servicos, setServicos] = useState([])
   const [barbearia, setBarbearia] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     carregarDados()
@@ -30,13 +31,17 @@ export function HomeCliente() {
       
       setServicos(dadosServicos || [])
     }
+    setLoading(false)
   }
 
-  if (!barbearia) return <div className="h-screen bg-zinc-900 text-white flex items-center justify-center">Carregando...</div>
+  if (loading === true) {  
+    return <div className="h-screen bg-zinc-900 text-white flex items-center justify-center">Carregando...</div>
+  } else if (loading === false && !barbearia) {
+    return <div className="h-screen bg-zinc-900 text-white flex items-center justify-center">Barbearia não encontrada.</div>
+  }
 
   return (
     <div className="min-h-screen bg-zinc-900 text-zinc-50 pb-20">
-      {/* --- HEADER --- */}
       <div className="bg-zinc-800 p-6 pb-10 rounded-b-3xl shadow-lg relative">
         <div className="flex justify-between items-start">
           <div>
