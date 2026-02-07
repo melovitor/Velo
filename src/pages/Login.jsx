@@ -11,7 +11,6 @@ export function Login() {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
-  // Função auxiliar para criar slug (ex: "Mikael Barber" -> "mikael-barber")
   const gerarSlug = (nome) => {
     return nome
       .toLowerCase()
@@ -32,7 +31,6 @@ export function Login() {
           email: email,
           password: password,
         })
-
         if (authError) throw authError
 
         if (authData.user) {
@@ -44,6 +42,7 @@ export function Login() {
               user_id: authData.user.id, // O ELO DE LIGAÇÃO
               nome: fullName,
               slug: novoSlug,
+              email: email,
               // Adicione outros campos padrões se precisar
             }
           ])
