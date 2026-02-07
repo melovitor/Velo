@@ -57,7 +57,6 @@ export function Login() {
         }
 
       } else {
-        // --- LOGIN NORMAL ---
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
