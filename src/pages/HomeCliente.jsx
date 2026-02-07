@@ -60,16 +60,17 @@ export function HomeCliente() {
           }
         </div>
 
-        {/* Foto do Perfil (Placeholder) */}
         <div className="absolute -bottom-6 left-6">
           <div className="w-16 h-16 bg-zinc-700 rounded-full border-4 border-zinc-900 flex items-center justify-center overflow-hidden">
-             {/* Se tiver foto no banco, usa img. Se não, usa ícone */}
-             <Scissors size={24} className="text-zinc-400" />
+            {barbearia.foto_url ? 
+                <img src={barbearia.foto_url} alt="Foto de perfil" className="w-full h-full object-cover" /> 
+              : 
+                <Scissors size={24} className="text-zinc-400" />
+              }
+
           </div>
         </div>
       </div>
-
-      {/* --- LISTA DE SERVIÇOS --- */}
       <div className="mt-12 px-6">
         <h2 className="text-lg font-bold mb-4">Serviços</h2>
 
@@ -83,7 +84,7 @@ export function HomeCliente() {
                 <h3 className="font-semibold text-white">{servico.titulo}</h3>
                 <div className="flex items-center gap-4 mt-1 text-sm text-zinc-400">
                   <span className="flex items-center gap-1">
-                    <DollarSign size={14} /> R$ {servico.preco}
+                  R$ {servico.preco}
                   </span>
                   <span className="flex items-center gap-1">
                     <Clock size={14} /> {servico.duracao_minutos}min
