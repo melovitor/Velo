@@ -80,7 +80,6 @@ export function MeusServicos() {
     if (!confirm('Tem certeza que deseja excluir este serviço?')) return
 
     const { error } = await supabase.from('servicos').delete().eq('id', id)
-    
     if (error) alert('Erro ao excluir')
     else buscarServicos()
   }
@@ -148,7 +147,6 @@ export function MeusServicos() {
           </form>
         </div>
 
-        {/* LISTA DE SERVIÇOS EXISTENTES */}
         <h3 className="text-zinc-400 font-bold uppercase text-sm mb-4">Serviços Ativos</h3>
         
         <div className="space-y-3">
