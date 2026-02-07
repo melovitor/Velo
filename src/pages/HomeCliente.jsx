@@ -1,27 +1,28 @@
+import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
-import { Clock, DollarSign, Scissors } from 'lucide-react' // Ícones (se não tiver instalado, avise)
+import { Clock, DollarSign, Scissors } from 'lucide-react'
+
 
 export function HomeCliente() {
+  const { slug } = useParams()
   const [servicos, setServicos] = useState([])
   const [barbearia, setBarbearia] = useState(null)
 
   useEffect(() => {
     carregarDados()
-  }, [])
+  }, [slug])
 
   async function carregarDados() {
-    // 1. Busca os dados da Barbearia (Mikael)
     const { data: dadosBarbearia } = await supabase
       .from('barbearias')
       .select('*')
-      .eq('slug', 'mikael-barber') // Lembra do slug que criamos?
+      .eq('slug', slug) 
       .single()
 
     setBarbearia(dadosBarbearia)
 
     if (dadosBarbearia) {
-      // 2. Busca os serviços dessa barbearia
       const { data: dadosServicos } = await supabase
         .from('servicos')
         .select('*')
@@ -31,7 +32,6 @@ export function HomeCliente() {
     }
   }
 
-  // Se ainda estiver carregando...
   if (!barbearia) return <div className="h-screen bg-zinc-900 text-white flex items-center justify-center">Carregando...</div>
 
   return (
