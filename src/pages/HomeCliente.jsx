@@ -1,14 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
-import { Clock, DollarSign, Scissors } from 'lucide-react'
-
+import { Clock, Scissors } from 'lucide-react'
 
 export function HomeCliente() {
   const { slug } = useParams()
   const [servicos, setServicos] = useState([])
   const [barbearia, setBarbearia] = useState(null)
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     carregarDados()
@@ -92,7 +92,10 @@ export function HomeCliente() {
                 </div>
               </div>
               
-              <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+              <button 
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors"
+                onClick={() => navigate(`/${slug}/agendar`)}
+              >
                 Agendar
               </button>
             </div>
