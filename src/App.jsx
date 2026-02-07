@@ -1,20 +1,19 @@
-import { Routes, Route } from 'react-router-dom'
-import { HomeCliente } from './pages/HomeClient'
-import { Login } from './pages/Login'
 import { AdminDashboard } from './pages/AdminDashboard'
+import { HomeCliente } from './pages/HomeCliente'
+import { Login } from './pages/Login'
+import { MeusServicos } from './pages/MeusServicos' // <--- 1. Importe aqui
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <Routes>
-      {/* Rota Raiz: O cliente acessa site.com e cai aqui */}
-      <Route path="/" element={<HomeCliente />} />
-
-      {/* Rota Login: O barbeiro acessa site.com/login */}
-      <Route path="/login" element={<Login />} />
-
-      {/* Rota Admin: O barbeiro acessa site.com/admin */}
-      <Route path="/admin" element={<AdminDashboard />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeCliente />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/servicos" element={<MeusServicos />} /> {/* <--- 2. Adicione aqui */}
+      </Routes>
+    </BrowserRouter>
   )
 }
 
