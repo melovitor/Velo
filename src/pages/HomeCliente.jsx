@@ -86,9 +86,9 @@ export function HomeCliente() {
                   <span className="flex items-center gap-1">
                   R$ {servico.preco}
                   </span>
-                  <span className="flex items-center gap-1">
+                  {/* <span className="flex items-center gap-1">
                     <Clock size={14} /> {servico.duracao_minutos}min
-                  </span>
+                  </span> */}
                 </div>
               </div>
               
