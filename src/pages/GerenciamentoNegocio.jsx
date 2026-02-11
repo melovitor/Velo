@@ -160,8 +160,8 @@ export function GerenciamentoNegocio(){
                 </select>
               </div> 
 
-              <div className="flex gap-4">
-                <div className="flex-1">
+              <div className="flex justify-between gap-10">
+                <div>
                   <label className="text-xs text-zinc-400 font-bold uppercase">Abertura</label>
                   <input 
                     type="time" 
@@ -170,7 +170,7 @@ export function GerenciamentoNegocio(){
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-3 mt-1 focus:border-emerald-500 outline-none"
                   />
                 </div>
-                <div className="flex-1">
+                <div>
                   <label className="text-xs text-zinc-400 font-bold uppercase">Fechamento</label>
                   <input 
                     type="time" 
@@ -180,8 +180,8 @@ export function GerenciamentoNegocio(){
                   />
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="flex-1">
+              <div className="flex justify-between gap-10">
+                <div>
                   <label className="text-xs text-zinc-400 font-bold uppercase">Pausa Início</label>
                   <input 
                     type="time" 
@@ -190,7 +190,7 @@ export function GerenciamentoNegocio(){
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-3 mt-1 focus:border-emerald-500 outline-none"
                   />
                 </div>
-                <div className="flex-1">
+                <div>
                   <label className="text-xs text-zinc-400 font-bold uppercase">Pausa Fim</label>
                   <input 
                     type="time" 
