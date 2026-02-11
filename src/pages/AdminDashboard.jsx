@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate } from 'react-router-dom'
-import { Calendar, CheckCircle, Clock, DollarSign, LogOut, Trash2, User, Scissors, ChevronRight } from 'lucide-react'
+import { Calendar, CheckCircle, Clock, DollarSign, LogOut, Trash2, User, Handshake, ChevronRight, Settings } from 'lucide-react'
 
 export function AdminDashboard() {
   const [agendamentos, setAgendamentos] = useState([])
@@ -26,6 +26,7 @@ export function AdminDashboard() {
 
     // 1. Pega o usuário logado para saber qual barbearia é a dele
     const { data: { user } } = await supabase.auth.getUser()
+    console.log('user', user)
     
     if (!user) return
 
@@ -153,11 +154,28 @@ export function AdminDashboard() {
           >
             <div className="flex items-center gap-3">
               <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500">
-                <Scissors size={24} />
+                <Handshake size={24} />
               </div>
               <div className="text-left">
                 <p className="font-bold">Gerenciar Serviços</p>
                 <p className="text-zinc-400 text-xs">Adicione ou edite seus preços</p>
+              </div>
+            </div>
+            <ChevronRight className="text-zinc-500 group-hover:text-emerald-500 transition-colors" />
+          </button>
+        </div>
+        <div className="mb-8">
+          <button 
+            onClick={() => navigate('/admin/gerenciamento')}
+            className="w-full bg-zinc-800 border border-zinc-700 hover:border-emerald-500 text-white p-4 rounded-xl flex items-center justify-between group transition-all shadow-sm"
+          >
+            <div className="flex items-center gap-3">
+              <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500">
+                <Settings size={24} />
+              </div>
+              <div className="text-left">
+                <p className="font-bold">Gerenciar Meu Negócio</p>
+                <p className="text-zinc-400 text-xs">Gerencie seus horarios e tipo de negócio</p>
               </div>
             </div>
             <ChevronRight className="text-zinc-500 group-hover:text-emerald-500 transition-colors" />

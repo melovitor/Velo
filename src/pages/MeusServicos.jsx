@@ -11,7 +11,7 @@ export function MeusServicos() {
   // Estados do Formulário de Novo Serviço
   const [novoTitulo, setNovoTitulo] = useState('')
   const [novoPreco, setNovoPreco] = useState('')
-  const [novaDuracao, setNovaDuracao] = useState('30') // Padrão 30min
+  // const [novaDuracao, setNovaDuracao] = useState('30') // Padrão 30min
 
   useEffect(() => {
     buscarServicos()
@@ -126,7 +126,7 @@ export function MeusServicos() {
                   className="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-3 mt-1 focus:border-emerald-500 outline-none"
                 />
               </div>
-              <div className="w-1/3">
+              {/* <div className="w-1/3">
                 <label className="text-xs text-zinc-400 font-bold uppercase">Minutos</label>
                 <select 
                   value={novaDuracao}
@@ -138,7 +138,7 @@ export function MeusServicos() {
                   <option value="45">45 min</option>
                   <option value="60">1h</option>
                 </select>
-              </div>
+              </div> */}
             </div>
 
             <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg transition-colors">
